@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="MySQL - transport@localhost">
+  <database-model serializer="dbm" rdbms="MYSQL" format-version="4.0">
+    <root id="1"/>
+    <schema id="2" parent="1" name="transport">
+      <Visible>1</Visible>
+    </schema>
+    <table id="3" parent="2" name="carriage"/>
+    <table id="4" parent="2" name="order"/>
+    <table id="5" parent="2" name="remain"/>
+    <table id="6" parent="2" name="routine"/>
+    <table id="7" parent="2" name="train"/>
+    <column id="8" parent="3" name="id">
+      <DataType>int(6)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="9" parent="3" name="type">
+      <DataType>varchar(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="10" parent="3" name="train_name">
+      <DataType>varchar(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="11" parent="3" name="number">
+      <DataType>int(2)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="12" parent="3" name="train_name">
+      <ColNames>train_name</ColNames>
+    </index>
+    <key id="13" parent="3" name="PRIMARY">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="14" parent="3" name="carriage_ibfk_1">
+      <ColNames>train_name</ColNames>
+      <RefTableName>train</RefTableName>
+      <RefKeyName>PRIMARY</RefKeyName>
+      <RefColNames>name</RefColNames>
+    </foreign-key>
+    <column id="15" parent="4" name="userId">
+      <DataType>int(6)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="16" parent="4" name="trainName">
+      <DataType>varchar(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="17" parent="4" name="begin">
+      <DataType>varchar(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="18" parent="4" name="end">
+      <DataType>varchar(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="19" parent="4" name="type">
+      <DataType>varchar(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="20" parent="4" name="number">
+      <DataType>int(2)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="21" parent="4" name="seat">
+      <DataType>int(2)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="22" parent="4" name="trainName">
+      <ColNames>trainName</ColNames>
+    </index>
+    <foreign-key id="23" parent="4" name="order_ibfk_1">
+      <ColNames>trainName</ColNames>
+      <RefTableName>train</RefTableName>
+      <RefKeyName>PRIMARY</RefKeyName>
+      <RefColNames>name</RefColNames>
+    </foreign-key>
+    <column id="24" parent="5" name="routine_id">
+      <DataType>int(6)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="25" parent="5" name="carriage_id">
+      <DataType>int(6)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="26" parent="5" name="type">
+      <DataType>varchar(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="27" parent="5" name="remainNumber">
+      <DataType>int(2)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="28" parent="5" name="allNumber">
+      <DataType>int(2)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="29" parent="5" name="carriage_id">
+      <ColNames>carriage_id</ColNames>
+    </index>
+    <index id="30" parent="5" name="routine_id">
+      <ColNames>routine_id</ColNames>
+    </index>
+    <foreign-key id="31" parent="5" name="remain_ibfk_1">
+      <ColNames>routine_id</ColNames>
+      <RefTableName>routine</RefTableName>
+      <RefKeyName>PRIMARY</RefKeyName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <foreign-key id="32" parent="5" name="remain_ibfk_2">
+      <ColNames>carriage_id</ColNames>
+      <RefTableName>carriage</RefTableName>
+      <RefKeyName>PRIMARY</RefKeyName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <column id="33" parent="6" name="id">
+      <DataType>int(6)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="34" parent="6" name="name">
+      <DataType>varchar(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="35" parent="6" name="begin">
+      <DataType>varchar(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="36" parent="6" name="end">
+      <DataType>varchar(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="37" parent="6" name="name">
+      <ColNames>name</ColNames>
+    </index>
+    <key id="38" parent="6" name="PRIMARY">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="39" parent="6" name="routine_ibfk_1">
+      <ColNames>name</ColNames>
+      <RefTableName>train</RefTableName>
+      <RefKeyName>PRIMARY</RefKeyName>
+      <RefColNames>name</RefColNames>
+    </foreign-key>
+    <column id="40" parent="7" name="name">
+      <DataType>varchar(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="41" parent="7" name="carriage_num">
+      <DataType>int(2)|0</DataType>
+    </column>
+    <key id="42" parent="7" name="PRIMARY">
+      <ColNames>name</ColNames>
+      <Primary>1</Primary>
+    </key>
+  </database-model>
+</dataSource>
